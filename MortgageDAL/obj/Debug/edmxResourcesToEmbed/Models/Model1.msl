@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MortgageModelStoreContainer" CdmEntityContainer="MortgageEntities">
+    <EntitySetMapping Name="Mortgages">
+      <EntityTypeMapping TypeName="MortgageModel.Mortgage">
+        <MappingFragment StoreEntitySet="Mortgages">
+          <ScalarProperty Name="MortgageId" ColumnName="MortgageId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MortgageType" ColumnName="MortgageType" />
+          <ScalarProperty Name="InterestRepayment" ColumnName="InterestRepayment" />
+          <ScalarProperty Name="EffectiveStartDate" ColumnName="EffectiveStartDate" />
+          <ScalarProperty Name="EffectiveEndDate" ColumnName="EffectiveEndDate" />
+          <ScalarProperty Name="TermsInMonths" ColumnName="TermsInMonths" />
+          <ScalarProperty Name="CancellationFee" ColumnName="CancellationFee" />
+          <ScalarProperty Name="EstablishmentFee" ColumnName="EstablishmentFee" />
+          <ScalarProperty Name="SchemaIdentifier" ColumnName="SchemaIdentifier" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SelectMortgagesData" FunctionName="MortgageModel.Store.SelectMortgagesData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MortgageModel.SelectMortgagesData_Result">
+          <ScalarProperty Name="MortgageId" ColumnName="MortgageId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MortgageType" ColumnName="MortgageType" />
+          <ScalarProperty Name="InterestRepayment" ColumnName="InterestRepayment" />
+          <ScalarProperty Name="EffectiveStartDate" ColumnName="EffectiveStartDate" />
+          <ScalarProperty Name="EffectiveEndDate" ColumnName="EffectiveEndDate" />
+          <ScalarProperty Name="TermsInMonths" ColumnName="TermsInMonths" />
+          <ScalarProperty Name="CancellationFee" ColumnName="CancellationFee" />
+          <ScalarProperty Name="EstablishmentFee" ColumnName="EstablishmentFee" />
+          <ScalarProperty Name="SchemaIdentifier" ColumnName="SchemaIdentifier" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

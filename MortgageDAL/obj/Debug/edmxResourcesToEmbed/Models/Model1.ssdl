@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MortgageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Mortgages">
+    <Key>
+      <PropertyRef Name="MortgageId" />
+    </Key>
+    <Property Name="MortgageId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="MortgageType" Type="varchar" MaxLength="100" />
+    <Property Name="InterestRepayment" Type="varchar" MaxLength="100" />
+    <Property Name="EffectiveStartDate" Type="datetime" />
+    <Property Name="EffectiveEndDate" Type="datetime" />
+    <Property Name="TermsInMonths" Type="int" />
+    <Property Name="CancellationFee" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="EstablishmentFee" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SchemaIdentifier" Type="varchar" MaxLength="200" />
+    <Property Name="Is_Active" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Function Name="SelectMortgagesData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="MortgageModelStoreContainer">
+    <EntitySet Name="Mortgages" EntityType="Self.Mortgages" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

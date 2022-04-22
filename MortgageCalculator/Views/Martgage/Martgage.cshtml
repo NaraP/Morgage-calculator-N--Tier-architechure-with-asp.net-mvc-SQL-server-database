@@ -1,0 +1,166 @@
+﻿@model IEnumerable<MortgageCalculator.Dto.MortgageDto>
+
+@{
+    Layout = null;
+    WebGrid webGrid = new WebGrid(source: Model);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            .Grid th {
+                background-color: #F7F7F7;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+    </style>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"  rel="Stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        $(function () {
+            $("#btnPost").click(function () {
+                var mortgageLoan = new Object();
+                mortgageLoan.Amount = $('#txtloanAmnt').val();
+                mortgageLoan.Duration = $('#txtLoanduration').val();
+                mortgageLoan.Rate = $('#txtrate').val();
+
+                if (mortgageLoan != null) {
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:44322/Martgage/CalculateMonthlyPaymentLoan",
+                        data: JSON.stringify(mortgageLoan),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response != null) {
+                                // alert("Monthly payment : " + response.Amount + ", Duration : " + response.Duration + ", Interest Rate :" + response.Rate);
+                                // alert($('#txtmonthlypayment').val(response.Amount));
+                                // $('#txtmonthAmnt').val(response.Amount));
+                                $('#txtloanmonthlypayment').val(response.Amount);
+                                $('#txtloanTotalrepayment').val(response.Duration);
+                                $('#txtloanTotalInterest').val(response.Rate);
+                            }
+                            else {
+                                //alert("Something went wrong");
+                            }
+                        },
+                        failure: function (response) {
+                            //alert(response.responseText);
+                        },
+                        error: function (response) {
+                            //alert(response.responseText);
+                        }
+                    });
+                }
+            });
+
+            $("#txtMartgageType").autocomplete({
+                debugger;
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'http://localhost:44322/Martgage/AutoComplete',
+                        data: "{'prefix': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            debugger;
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    $("#hfCustomer").val(i.item.val);
+                },
+                minLength: 1
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div style="margin-left:20px">Morgage calculator</div>
+    <br />
+    <div title="Morgage calculator">
+        <label>Loan Amount :</label>
+        <input type="text" id="txtloanAmnt" placeholder="Loan Amount" /></br>
+        </br>
+        <label>Loan Duration (Years) :</label>
+        <input type="text" id="txtLoanduration" placeholder="Loan duration" /></br>
+        </br>
+        <label>Interest Rate (%):</label>
+        <input type="text" id="txtrate" placeholder="Interest rate" /></br>
+        </br>
+        <label>Monthly Payment:</label>
+        <input type="text" id="txtloanmonthlypayment" placeholder="Loan Amount" /></br>
+        </br>
+        <label>Total repayment over the lifetime of the loan :</label>
+        <input type="text" id="txtloanTotalrepayment" placeholder="Total Repayment Amount" /></br>
+        </br>
+        <label>Total Amount paid in interest over the life of the loan :</label>
+        <input type="text" id="txtloanTotalInterest" placeholder="Total interest Amount" /></br>
+        </br>
+        <input type="button" id="btnPost" value="Calculate" /></br></br>
+        <label>Mortgage type autocomplete dropdown:</label>
+
+        <input type="text" id="txtMartgageType" name="MartgateTypes" />
+    </div>
+    </br>
+    </br>
+
+    @if (Model.Any())
+    {
+        @webGrid.GetHtml(
+                         htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+                         columns: webGrid.Columns(
+                                  webGrid.Column("Name", "Customer Name"),
+                                  webGrid.Column("MortgageType", "Mortgage Type"),
+                                  webGrid.Column("InterestRepayment", "Interest Repayment"),
+                                  webGrid.Column("EffectiveStartDate", "Effective StartDate"),
+                                  webGrid.Column("EffectiveEndDate", "Effective EndDate"),
+                                  webGrid.Column("TermsInMonths", "Terms InMonths"),
+                                  webGrid.Column("CancellationFee", "Cancellation Fee"),
+                                  webGrid.Column("EstablishmentFee", "Establishment Fee"),
+                                  webGrid.Column("EstablishmentFee", "Establishment Fee")))
+    }
+</body>
+</html>

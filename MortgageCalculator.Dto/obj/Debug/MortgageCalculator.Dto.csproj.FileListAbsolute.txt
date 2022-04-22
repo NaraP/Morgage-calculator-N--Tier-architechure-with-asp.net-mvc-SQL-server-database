@@ -1,0 +1,5 @@
+D:\RIOContractProject\Project\MortgageCalculator\MortgageCalculator.Dto\bin\Debug\MortgageCalculator.Dto.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageCalculator.Dto\bin\Debug\MortgageCalculator.Dto.pdb
+D:\RIOContractProject\Project\MortgageCalculator\MortgageCalculator.Dto\obj\Debug\MortgageCalculator.Dto.csproj.CoreCompileInputs.cache
+D:\RIOContractProject\Project\MortgageCalculator\MortgageCalculator.Dto\obj\Debug\MortgageCalculator.Dto.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageCalculator.Dto\obj\Debug\MortgageCalculator.Dto.pdb

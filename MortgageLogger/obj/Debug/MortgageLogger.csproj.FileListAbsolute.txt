@@ -1,0 +1,16 @@
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\MortgageLogger.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\MortgageLogger.pdb
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\log4net.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Security.AccessControl.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Security.Permissions.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Security.Principal.Windows.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\log4net.xml
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Security.AccessControl.xml
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Security.Permissions.xml
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\bin\Debug\System.Security.Principal.Windows.xml
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\obj\Debug\MortgageLogger.csproj.CoreCompileInputs.cache
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\obj\Debug\MortgageLogger.csproj.CopyComplete
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\obj\Debug\MortgageLogger.dll
+D:\RIOContractProject\Project\MortgageCalculator\MortgageLogger\obj\Debug\MortgageLogger.pdb
